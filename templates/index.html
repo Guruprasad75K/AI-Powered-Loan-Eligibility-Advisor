@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoanVista - Intelligent Loan Approval System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">Loan Eligibility Advisor</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#application" class="nav-link">Apply</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-badge">AI-Powered Financial Services</div>
+            <h1 class="hero-title">
+                Your Future,<br>
+                <span class="gradient-text">Approved</span>
+            </h1>
+            <p class="hero-subtitle">
+                Experience instant loan approval with our advanced AI system.<br>
+                Smart. Fast. Transparent.
+            </p>
+            <button class="cta-button" onclick="scrollToApplication()">
+                <span>Start Your Application</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">&lt;3s</div>
+                    <div class="stat-label">Processing Time</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Parameters</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h2 class="section-title">Intelligent Lending,<br>Simplified</h2>
+                <p class="section-description">
+                    Our AI-powered system analyzes your application in real-time,
+                    considering multiple factors to provide instant, fair, and accurate
+                    loan approval decisions.
+                </p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Precision Analysis</h3>
+                        <p>Advanced algorithms evaluate 12 key factors</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Transparent Report</h3>
+                        <p>Detailed breakdown of your application</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Fast Responses</h3>
+                        <p>Ask finance questions, get instant help</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Section -->
+    <section id="application" class="application-section">
+        <div class="app-container">
+            <h2 class="section-title">Loan Application</h2>
+            <p class="section-description">Complete the form below to get instant approval</p>
+
+            <form id="loanForm" class="loan-form">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Personal Information</h3>
+
+                    <div class="form-group">
+                        <label for="person_age">Age</label>
+                        <div class="slider-container">
+                            <input type="range" id="person_age" name="person_age"
+                                   min="18" max="100" value="30" class="slider">
+                            <span class="slider-value" id="person_age_value">30 years</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="person_gender">Gender</label>
+                            <select id="person_gender" name="person_gender" class="select-input" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="person_education">Education</label>
+                            <select id="person_education" name="person_education" class="select-input" required>
+                                <option value="High School">High School</option>
+                                <option value="Associate">Associate</option>
+                                <option value="Bachelor">Bachelor</option>
+                                <option value="Master">Master</option>
+                                <option value="Doctorate">Doctorate</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Information -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Financial Information</h3>
+
+                    <div class="form-group">
+                        <label for="person_income">Annual Income</label>
+                        <div class="slider-container">
+                            <input type="range" id="person_income" name="person_income"
+                                   min="10000" max="500000" value="60000" step="500" class="slider">
+                            <span class="slider-value" id="person_income_value">₹60,000</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="person_emp_exp">Employment Experience</label>
+                        <div class="slider-container">
+                            <input type="range" id="person_emp_exp" name="person_emp_exp"
+                                   min="0" max="50" value="5" class="slider">
+                            <span class="slider-value" id="person_emp_exp_value">5 years</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="person_home_ownership">Home Ownership</label>
+                        <select id="person_home_ownership" name="person_home_ownership" class="select-input" required>
+                            <option value="RENT">Rent</option>
+                            <option value="OWN">Own</option>
+                            <option value="MORTGAGE">Mortgage</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="credit_score">Credit Score</label>
+                        <div class="slider-container">
+                            <input type="range" id="credit_score" name="credit_score"
+                                   min="300" max="850" value="650" class="slider">
+                            <span class="slider-value" id="credit_score_value">650</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cb_person_cred_hist_length">Credit History Length</label>
+                        <div class="slider-container">
+                            <input type="range" id="cb_person_cred_hist_length"
+                                   name="cb_person_cred_hist_length"
+                                   min="0" max="30" value="5" step="0.5" class="slider">
+                            <span class="slider-value" id="cb_person_cred_hist_length_value">5.0 years</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loan Details -->
+                <div class="form-section">
+                    <h3 class="form-section-title">Loan Details</h3>
+
+                    <div class="form-group">
+                        <label for="loan_amnt">Loan Amount</label>
+                        <div class="slider-container">
+                            <input type="range" id="loan_amnt" name="loan_amnt"
+                                   min="1000" max="1000000" value="15000" step="500" class="slider">
+                            <span class="slider-value" id="loan_amnt_value">₹15,000</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loan_intent">Loan Purpose</label>
+                        <select id="loan_intent" name="loan_intent" class="select-input" required>
+                            <option value="PERSONAL">Personal</option>
+                            <option value="EDUCATION">Education</option>
+                            <option value="MEDICAL">Medical</option>
+                            <option value="VENTURE">Business Venture</option>
+                            <option value="HOMEIMPROVEMENT">Home Improvement</option>
+                            <option value="DEBTCONSOLIDATION">Debt Consolidation</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="previous_loan_defaults_on_file">Previous Loan Defaults</label>
+                        <select id="previous_loan_defaults_on_file"
+                                name="previous_loan_defaults_on_file" class="select-input" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    <span>Analyze Application</span>
+                    <div class="button-loader" style="display: none;"></div>
+                </button>
+            </form>
+
+            <!-- Result Section -->
+            <div id="resultSection" class="result-section" style="display: none;">
+                <div class="result-card">
+                    <div id="resultContent"></div>
+                    <button id="downloadReport" class="download-button">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 3V13M10 13L6 9M10 13L14 9M3 17H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Download Report</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot -->
+    <div id="chatbotContainer" class="chatbot-container">
+        <button id="chatbotToggle" class="chatbot-toggle">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+        </button>
+
+        <div id="chatbotWindow" class="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-header-content">
+                    <div class="chatbot-avatar">@</div>
+                    <div class="chatbot-info">
+                        <h4>ChatBot</h4>
+                        <span class="chatbot-status">
+                            <span class="status-dot"></span>
+                            Online
+                        </span>
+                    </div>
+                </div>
+                <button id="closeChatbot" class="close-chatbot">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 5L5 15M5 5L15 15"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="chatMessages" class="chat-messages">
+                <div class="chat-message bot-message">
+                    <div class="message-content">
+                        Hello! I'm your financial advisor. Ask me anything about loans, budgeting, investments, or financial planning!
+                    </div>
+                </div>
+            </div>
+
+            <form id="chatForm" class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Ask about loans, savings, credit..."
+                       class="chat-input" autocomplete="off">
+                <button type="submit" class="send-button">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M18 2L9 11M18 2L12 18L9 11M18 2L2 8L9 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
